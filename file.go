@@ -12,9 +12,11 @@ type TempFile struct {
 	Permission os.FileMode
 }
 
-// TempDir a temporary-dir
-type TempDir struct {
-	TempFiles  map[string]*TempFile
-	Path       string
-	Permission os.FileMode
+func newTempFile(n, p string, c []byte, perm os.FileMode) *TempFile {
+	return &TempFile{
+		Name:       n,
+		Path:       p,
+		Content:    c,
+		Permission: perm,
+	}
 }
